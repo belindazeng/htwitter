@@ -4,7 +4,8 @@
 	<li class="list-group-item">
 
 	<!-- display the content -->
-	<%= tweet.content %>
+	<!-- display the user also --> 
+		<%= tweet.content %> | <%= tweet.user.email%>
 	</li>
 
 <% end %>
