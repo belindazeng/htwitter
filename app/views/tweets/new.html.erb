@@ -1,0 +1,8 @@
+tweets go here
+
+<!-- form is binding to a new instance of tweet -->
+<!-- generate html code specifically for this tweet-->
+<%= simple_form_for @tweet do |f| %>
+  <%= f.input :content%>
+  <%= f.button :submit %>
+<% end %>
