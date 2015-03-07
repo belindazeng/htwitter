@@ -10,9 +10,17 @@ class TweetsController < ApplicationController
 		@tweet = Tweet.new(tweet_params)
 		
 		# save tweet to the database
-		@tweet.save
+		if @tweet.save
+
+			# function in ruby
+			# flash says survive one redirect before dying
+			flash[:success] = "You have created a tweet"
+		
+			# render vs redirect
+			redirect_to new_tweet_path
+		end
 		# goes back to new
-		render 'new'
+		#render 'new'
 	end
 
 	# need to sanitize input else forbidden access

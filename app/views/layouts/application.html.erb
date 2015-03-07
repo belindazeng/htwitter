@@ -72,6 +72,13 @@
 </nav>
 
 <div class="container">
+	<% flash.each do |key, value| %>
+		<!--insert the ruby key, and the success we specified with flash[:success]. the key here is "success" and value is "you have created a Tweet"-->
+		<div class="alert alert-<%=key%>">
+			<%= value %>
+		</div>
+	<% end %>
+
 	<%= yield %>
 </div>
 
