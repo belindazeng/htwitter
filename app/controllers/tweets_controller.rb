@@ -1,4 +1,11 @@
 class TweetsController < ApplicationController
+	# exclamation mark is huge for raise an error, security, something bad can happen
+	before_action :authenticate_user!
+
+	# excepting certain things
+	#before_action :authenticate_user!, except: :index
+	#before_action :authenticate_user!, only: :index
+
 	# links to the form
 	def new
 		# create a new instance of tweet (which is a model)
@@ -10,7 +17,10 @@ class TweetsController < ApplicationController
 	def create
 		# entirely different tweet from the previous
 		@tweet = Tweet.new(tweet_params)
-		
+
+		# assign a user
+		@tweet.user = current_user
+
 		# save tweet to the database
 		if @tweet.save
 
@@ -26,7 +36,7 @@ class TweetsController < ApplicationController
 	end
 
 	def index
-		
+
 		@tweets = Tweet.all
 	end 
 
