@@ -1,9 +1,11 @@
 class TweetsController < ApplicationController
+	# links to the form
 	def new
 		# create a new instance of tweet (which is a model)
 		@tweet = Tweet.new
 	end
 
+	# creates a new tweet
 	# we need to define create action, so our controller knows which page to send to
 	def create
 		# entirely different tweet from the previous
@@ -22,6 +24,11 @@ class TweetsController < ApplicationController
 		# goes back to new
 		#render 'new'
 	end
+
+	def index
+		
+		@tweets = Tweet.all
+	end 
 
 	# need to sanitize input else forbidden access
 
