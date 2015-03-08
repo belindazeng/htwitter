@@ -1,0 +1,23 @@
+
+<h1> Profile </h1>
+<!--another way to do this (wrong)-->
+<!--
+<h3> <%= current_user.profile.first_name %> ~ <%= current_user.email %> </h3>
+<h5> <%= current_user.profile.picture %> </h5>
+<h5> <%= current_user.profile.description%> </h5>
+-->
+
+
+<h3> <%= @profile.first_name %> ~ <%= @profile.user.email%> </h3>
+<ul class="list-group">
+	<li class="list-group-item">
+		<h5> <%= @profile.description %> </h5>
+	</li>
+</ul>
+
+<!-- image profile picture -->
+<%= image_tag @profile.picture %>
+
+<!-- to style it -->
+<!--
+<%= image_tag @profile.picture, style: 'width:200px; heigh:200px;' %> -->

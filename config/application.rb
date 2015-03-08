@@ -2,10 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+# specific to this gem for uploading files
+require 'carrierwave/orm/activerecord'
 module Htwitter
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 	before_action :authenticate_user!
-	
+
 	def new
 		# creating a new instance of Profile
 		@profile = Profile.new
@@ -14,14 +14,21 @@ class ProfilesController < ApplicationController
 
 		if @profile.save
 			flash[:success] = "You have created a profile"
-			redirect_to new_tweet_path
+			redirect_to profile_path(current_user.profile)
 		else
 			render 'new'
 		end
 	end
 
+	def show
+		# getting information from the URL via params
+		 @profile = Profile.find(params[:id])
+	end
+
+
 	def profile_params
 		params.require(:profile).permit(:picture, :first_name, :description)
 	end
+
 
 end

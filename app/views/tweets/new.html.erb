@@ -11,3 +11,13 @@
   <%= f.button :submit, value: "continue", class: "btn btn-large btn-success" %>-->
 <% end %>
 
+<!-- news feed -->
+<h1> news feed </h1>
+<% @testing.each do |test| %>
+
+	<li class="list-group-item">
+
+		<%= test.content %> | <%= test.user.email %>
+	</li>
+
+<% end %>

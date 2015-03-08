@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
 	def new
 		# create a new instance of tweet (which is a model)
 		@tweet = Tweet.new
+		@testing = Tweet.all
 	end
 
 	# creates a new tweet
@@ -17,7 +18,9 @@ class TweetsController < ApplicationController
 	def create
 		# entirely different tweet from the previous
 		@tweet = Tweet.new(tweet_params)
-
+		
+		# because of the renders (doesn't save it otherwise)
+		@testing = Tweet.all
 		# assign a user
 		@tweet.user = current_user
 
@@ -29,7 +32,8 @@ class TweetsController < ApplicationController
 			# function in ruby
 			# flash says survive one redirect before dying
 			flash[:success] = "You have created a tweet"
-		
+			
+
 			# render vs redirect
 			redirect_to new_tweet_path
 
