@@ -12,21 +12,26 @@
   	height:30px;
   }
 
-  html, body {
-    height: 100%;
-  }
-
-  .site-footer {
-    padding-top: 5%;
-    height: 150px; 
-    margin-top: 5%;
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+footer {
+    margin-top: 200px;
+    padding-top: 3%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
     color: white;
     text-align: center;
-  }
-  .site-footer {
     background: #5EA9DD;
-  }
 
+}
 
   </style>
   <link rel="icon" 
@@ -135,9 +140,12 @@
 			<%= value %>
 		</div>
 	<% end %>
-
-	<%= yield %>
 </div>
+	<%= yield %>
+  <br/>
+  <br/>
+
+
 
 
 
