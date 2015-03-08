@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # resources has everything people need in common, new edit delete 
   resources :profiles
 
-
+  resources :follows, only: :create
   #custom routes
   # get 'yolo', to: 'profiles#yolo', as :yolo
 

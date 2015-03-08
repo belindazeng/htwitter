@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :tweets 
   has_one :profile
+
+  # make it so a user can be followed
+  acts_as_followable
+  acts_as_follower
 end
