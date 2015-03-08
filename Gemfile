@@ -50,7 +50,9 @@ group :development, :test do
 end
 # pg is a new database that is much better
 group :production do
+	gem 'rails_12factor', '0.0.2'
 	gem 'pg'
+
 end
 
 # Use ActiveModel has_secure_password
