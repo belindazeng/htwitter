@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :profiles
 
   resources :follows, only: :create
+
+  # whatever comes for hashtags is id (has to do with the routes)
+  resources :hashtags, only: :show
   #custom routes
   # get 'yolo', to: 'profiles#yolo', as :yolo
 

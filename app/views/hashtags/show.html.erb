@@ -1,0 +1,32 @@
+<h1> hashtag feed </h1>
+
+<% @filtered_tweets.each do |tweet| %>
+	<% if tweet.user.profile %>
+		<li class="list-group-item">
+
+		<!-- display the content -->
+		<!-- display the user also --> 
+			<%= tweet.content %> | <%= link_to tweet.user.profile.first_name,  profile_path(tweet.user.profile) %>
+			<!-- not @ since no longer an object --> 
+			<!-- :follows refers to -->
+			<!-- need to pass it a url because we're on index and it doesn't -->
+			<!-- put follows into the params, follows is something we create, that's just a string -->
+			<!--change button depending on if following -->
+			<% if current_user.following?(tweet.user) %>
+				<button type ="button" class="btn btn-danger">
+					Already Following
+				</button>
+			<% else %>
+				<%= simple_form_for :follows, url: follows_path do |f| %>
+				<!-- create a hidden field --> 
+				<!-- key is user, value is user id as gotten from the html -->
+				<%= f.input :user, as: :hidden, input_html: {value: tweet.user.id} %>
+				<!-- value is for the button text, then make the button gree-->
+				<%= f.button :submit, value: 'follow', class: 'btn btn-large btn-success' %>
+			<% end %>
+			<% end %>
+		</li>
+		
+	<% end %>
+
+<% end %>
