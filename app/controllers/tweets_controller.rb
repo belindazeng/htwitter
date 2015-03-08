@@ -21,6 +21,8 @@ class TweetsController < ApplicationController
 		# assign a user
 		@tweet.user = current_user
 
+		
+
 		# save tweet to the database
 		if @tweet.save
 
@@ -30,6 +32,9 @@ class TweetsController < ApplicationController
 		
 			# render vs redirect
 			redirect_to new_tweet_path
+
+		else 
+			render 'new'
 		end
 		# goes back to new
 		#render 'new'
