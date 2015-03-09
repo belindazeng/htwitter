@@ -17,14 +17,11 @@ html {
     min-height: 100%;
 }
 body {
-    margin: 0 0 100px; /* bottom = footer height */
+    margin: 0 0 0px; /* bottom = footer height */
 }
 footer {
-    margin-top: 200px;
+    margin-top: 10%;
     padding-top: 3%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
     height: 100px;
     width: 100%;
     color: white;
@@ -32,7 +29,15 @@ footer {
     background: #5EA9DD;
 
 }
-
+.container-fluid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
   </style>
   <link rel="icon" 
       type="image/png" 
