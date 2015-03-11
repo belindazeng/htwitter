@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   # whatever comes for hashtags is id (has to do with the routes)
   resources :hashtags, only: :show
+
+  #stripe route
+  resources :charges
+  
   #custom routes
   # get 'yolo', to: 'profiles#yolo', as :yolo
 
